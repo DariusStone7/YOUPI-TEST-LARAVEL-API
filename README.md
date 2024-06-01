@@ -7,7 +7,9 @@ git clone https://github.com/DariusStone7/YOUPI-TEST-LARAVEL-API.git
 
 3- executer les commandes suivantes dans l'ordre a la racine du projet:
     composer install
+    
     php artisan key:generate
+    
     php artisan migrate
 
 4- Lancer le projet
