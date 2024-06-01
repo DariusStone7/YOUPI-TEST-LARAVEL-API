@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Exception;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Http\Requests\auth\LoginRequest;
 use App\Http\Requests\auth\LogoutRequest;
 use App\Http\Requests\auth\RegisterRequest;
@@ -14,7 +15,9 @@ class AuthController extends Controller
     public function register(RegisterRequest $request){
 
         try{
-            $user = User::create($request->validated());
+            $data = $request->validated();
+            $data["password"] = Hash::make($request->password);
+            $user = User::create($data);
         
             return response()->json([
                 'status_code' => 200,
