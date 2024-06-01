@@ -26,6 +26,7 @@ class AuthController extends Controller
             return response()->json([
                 'status_code' => 500,
                 'message' => 'utilisateur non créé. une erreur est survenue',
+                'error' => $e,
             ]);
         }
         
@@ -61,6 +62,7 @@ class AuthController extends Controller
             return response()->json([
                 'status_code' => 500,
                 'message' => 'Echec de la connexion. une erreur est survenue',
+                'error' => $e,
             ]);
         }
     }
